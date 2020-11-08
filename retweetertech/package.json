@@ -10,6 +10,7 @@
   "author": "Urban Software Engineer",
   "license": "ISC",
   "dependencies": {
+    "lodash": "^4.17.20",
     "twit": "^2.2.11"
   }
 }
