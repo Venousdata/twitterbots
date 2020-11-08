@@ -60,21 +60,22 @@ async function engageTweet(tweet) {
     });
 
     await sleep(_.random(3000, 5000));
-    if (
-      !tweet.user.following &&
-      !tweet.user.follow_request_sent &&
-      (favorited || retweeted)
-    ) {
-      T.post("friendships/create", { id: tweet.user.id_str }, (err) => {
-        if (err) {
-          console.log("Error occurred when following", err);
-          return;
-        }
-        console.log("==========followed!!==========");
-      });
 
-      await sleep(_.random(3000, 5000));
-    }
+    // if (
+    //   !tweet.user.following &&
+    //   !tweet.user.follow_request_sent &&
+    //   (favorited || retweeted)
+    // ) {
+    //   T.post("friendships/create", { id: tweet.user.id_str }, (err) => {
+    //     if (err) {
+    //       console.log("Error occurred when following", err);
+    //       return;
+    //     }
+    //     console.log("==========followed!!==========");
+    //   });
+
+    //   await sleep(_.random(3000, 5000));
+    // }
   } else {
     console.log("=========already engaged with this tweet==========");
     return;
