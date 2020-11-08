@@ -4,18 +4,17 @@ const _ = require("lodash");
 
 const T = new Twit(config);
 
-let tweetArr = [];
+// const USA = ["-171.79", "18.92", "-66.96", "71.36"];
+// const UK = ["-7.57", "49.96", "1.68", "58.64"];
+// const africa = ["-47.18", "-22.13", "16.33", "38.29"];
+// const jamaica = ["16.59", "18.73", "-78.58", "-75.75"];
+// const USAGeo = "39.7837304, -100.4458825, 4500km";
+// const UKGeo = "54.7023545, -3.2765753, 1000km";
+// const africaGeo = "11.5024338, 17.7578122, 8000km";
+// const jamaicaGeo = "18.1152958, -77.1598455, 250km";
+// const countries = [USA, UK, africa, jamaica];
+// const countriesGeo = [USAGeo, UKGeo, africaGeo, jamaicaGeo];
 
-const USA = ["-171.79", "18.92", "-66.96", "71.36"];
-const UK = ["-7.57", "49.96", "1.68", "58.64"];
-const africa = ["-47.18", "-22.13", "16.33", "38.29"];
-const jamaica = ["16.59", "18.73", "-78.58", "-75.75"];
-const USAGeo = "39.7837304, -100.4458825, 4500km";
-const UKGeo = "54.7023545, -3.2765753, 1000km";
-const africaGeo = "11.5024338, 17.7578122, 8000km";
-const jamaicaGeo = "18.1152958, -77.1598455, 250km";
-const countries = [USA, UK, africa, jamaica];
-const countriesGeo = [USAGeo, UKGeo, africaGeo, jamaicaGeo];
 const hashtags = [
   "#blacktechtwitter",
   "#codingtips",
@@ -113,15 +112,10 @@ async function likeRetweetFollow(params) {
         tweets.length = 20;
       }
 
-      console.log(
-        "===========twets==========",
-        tweets.map((tweet) => tweet.id)
-      );
-      console.log("==========tweetsNewLength==========", tweets.length);
       if (tweets && Array.isArray(tweets)) {
-        console.log("==========tweet is an array and populated!!!==========");
         await processTweets(tweets);
       }
+
       retweetParams = {
         q: _.sample(hashtags),
         // geocode: _.sample(countriesGeo),
@@ -145,14 +139,6 @@ console.log("LIKED RETWEETED AND FOLLOWED COMPLETE!");
 //   () => likeRetweetFollow(retweetParams),
 //   _.random(1000 * 60 * 55, 1000 * 60 * 65)
 // );
-
-
-
-
-
-
-
-
 
 async function pruneFollowers() {
   T.get("followers/ids", function (err, data, response) {
