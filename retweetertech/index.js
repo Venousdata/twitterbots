@@ -86,7 +86,7 @@ async function processTweets(tweets) {
     for (const tweet of tweets) {
       console.log("==========here is the tweet text==========", tweet.text);
       await engageTweet(tweet);
-      await sleep(_.random(60000, 150000));
+      await sleep(_.random(150000, 235000));
     }
   } else {
     console.log(
@@ -135,10 +135,10 @@ likeRetweetFollow(retweetParams);
 
 console.log("LIKED RETWEETED AND FOLLOWED COMPLETE!");
 
-// setTimeout(
-//   () => likeRetweetFollow(retweetParams),
-//   _.random(1000 * 60 * 55, 1000 * 60 * 65)
-// );
+setTimeout(
+  () => likeRetweetFollow(retweetParams),
+  _.random(1000 * 60 * 80, 1000 * 60 * 90)
+);
 
 async function pruneFollowers() {
   T.get("followers/ids", function (err, data, response) {
